@@ -10,10 +10,10 @@ from numpy.linalg import norm
 
 def N_Bodies_Function(U, t):
 
-    if int(len(U))%6 == 0:
+    if int( len(U) ) % 6 == 0:
         Nb, Nc = (int(len(U)/6), 3)
     else:
-        print("Error; U must has a dimension of 6*N, with N an integer")
+        print("Error; U must has a dimension of 6*N, with N an integer: number of bodies")
 
     Us = reshape(U, (Nb, Nc*2))
 
@@ -23,7 +23,7 @@ def N_Bodies_Function(U, t):
     v = Us[:,Nc:]
     # print(v)
 
-    F = zeros(len(U))                       # Vector that will be F(U) and the end of the function
+    F = zeros(len(U))                       # Vector that will be F(U) at the end of the function
     F_pointer = reshape( F, (Nb, Nc*2) )
 
     drdt = F_pointer[:,0:Nc]
@@ -46,10 +46,9 @@ def N_Bodies_Function(U, t):
 
                 dvdt[i,:] = dvdt[i,:] + (d)/norm(d)**3
                 # print(dvdt)
-
     return F
 
-def Problem_Assignment(problem,Physics_Problems_available):
+def Problem_Assignment(problem, Physics_Problems_available):
 
     if problem == Physics_Problems_available[0]:
 
