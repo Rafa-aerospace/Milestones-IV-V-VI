@@ -76,7 +76,7 @@ time_domain = linspace(0, tf, nt)
 Uper = U0+rand(U0.shape[0], U0.shape[1])*1E-4; Uper[2,:] = 0
 
 
-for j, v in enumerate(U0.transpose()): # i will be the index of the columns
+for j, v in enumerate(U0.transpose()): # j will be the index of the columns
 
     U = Cauchy_Problem_V2(R3BP_Earth_Moon, Uper[:,j], time_domain) # Default RK4
 
