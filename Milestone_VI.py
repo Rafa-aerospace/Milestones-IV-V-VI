@@ -76,10 +76,9 @@ time_domain = linspace(0, tf, nt)
 Uper = U0+rand(U0.shape[0], U0.shape[1])*1E-4; Uper[2,:] = 0
 
 
-
 for j, v in enumerate(U0.transpose()): # i will be the index of the columns
 
-    U = Cauchy_Problem_V2(R3BP_Earth_Moon, Uper[:,j], time_domain) # It uses a default RK4
+    U = Cauchy_Problem_V2(R3BP_Earth_Moon, Uper[:,j], time_domain) # Default RK4
 
     U2, dt_min_reached = Embedded_RK_Application(Uper[:,j], R3BP_Earth_Moon, time_domain, name="RK87", tolerance = 1E-10, dt_min = 0.001)
 

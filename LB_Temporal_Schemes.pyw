@@ -6,10 +6,9 @@ Created on Fri Sep 23 23:46:33 2022
 """
 
 from numpy import linspace, absolute, array, meshgrid, zeros, matmul #, exp, sqrt, size,
+from scipy.optimize import root
 
 import LB_Math_Functions as mth
-
-
 
 # from scipy.optimize import fsolve
 
@@ -73,7 +72,9 @@ def Inverse__Euler(X, t, dt, Function):
 
     # U_n1 = newton(Inverse__Euler__Operator, X)
 
-    return newton(Inverse__Euler__Operator, X)
+    # U_n1 = root(Inverse__Euler__Operator, X).x
+
+    return root(Inverse__Euler__Operator, X).x
 
 
 def RK4(X, t, dt, Function):
@@ -138,7 +139,9 @@ def Crank__Nicolson(X, t, dt, Function):
 
     # U_n1 = mth.Newton_Raphson(Crank_Nicolson_Operator, x_i=X)
 
-    return  newton(Crank_Nicolson_Operator, X)
+    # U_n1 = newton(Crank_Nicolson_Operator, X)
+
+    return  root(Crank_Nicolson_Operator, X).x
 
 
 def Leap_Frog(X, X_1, t, dt, Function):
@@ -534,8 +537,6 @@ def Embedded_RK_U_n1(Function, Un, t, h, tag, name="RK65"): # This Embedded Rung
     else:
         U_n1_2 = Un + h * matmul( b2, k.transpose() )
         return U_n1_2
-
-
 
 
 

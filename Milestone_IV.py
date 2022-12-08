@@ -51,7 +51,7 @@ Temporal_schemes_available = {1:ts.Euler,
                               4:ts.RK4,
                               5:ts.Leap_Frog}
 
-Temporal_scheme = Temporal_schemes_available[2]
+Temporal_scheme = Temporal_schemes_available[3]
 
 # First parameters reorganization
 Initial_conditions = hstack((r_0,v_0)); print('Initial State Vector: U_0 = ', Initial_conditions, '\n\n\n')

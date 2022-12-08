@@ -121,7 +121,7 @@ def R3BP_Earth_Moon(U, t): # Restricted 3 body problem
     vx = U[3];  vy = U[4];  vz = U[5];
 
     d = sqrt( (x+mu)**2 +y**2 + z**2 )
-    r = sqrt( (x-1+mu)**2 + y**2 + z*2 )
+    r = sqrt( (x-1+mu)**2 + y**2 + z**2 )
 
 
     ax = x + 2 * vy - (1-mu) * ( x + mu )/d**3 - mu*(x-1+mu)/r**3
